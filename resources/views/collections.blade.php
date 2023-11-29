@@ -13,18 +13,7 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <a href=" {{ URL::tokenRoute('about') }} ">About</a>
-        <br/>
-
-        <a href=" {{ URL::tokenRoute('createCollection') }} ">Create Collection</a>
-        <br/>
-
-        <a href=" {{ URL::tokenRoute('seeCollections') }} ">See Collections</a>
-        <br/>
-
-        <script src="" async defer></script>
+        <h1>Alhamdulillah!</h1>
+        
     </body>
 </html>

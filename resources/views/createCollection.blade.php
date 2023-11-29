@@ -13,18 +13,22 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <a href=" {{ URL::tokenRoute('about') }} ">About</a>
-        <br/>
+        <form method="POST" action="{{ route('submitCollection') }}">
+            @sessionToken
+            <div>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" />
+            </div>
 
-        <a href=" {{ URL::tokenRoute('createCollection') }} ">Create Collection</a>
-        <br/>
+            <div>
+                <label for="description">Description</label>
+                <input type="text" id="description" name="description" />
+            </div>
 
-        <a href=" {{ URL::tokenRoute('seeCollections') }} ">See Collections</a>
-        <br/>
-
-        <script src="" async defer></script>
+            <div>
+                <button type="submit">Create</button>
+            </div>
+        </form>
+        
     </body>
 </html>
