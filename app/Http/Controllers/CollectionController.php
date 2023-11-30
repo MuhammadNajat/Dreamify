@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Redirect;
+//use App\Http\Controllers\RedirectResponse;
+use Illuminate\Http\RedirectResponse;
+use App\Models\Collection;
+use App\Models\Product;
 
 class CollectionController extends Controller
 {
@@ -12,39 +17,49 @@ class CollectionController extends Controller
         return view("about");
     }
 
-    function showCreateCollectionPage() {
-        return view("createCollection");
-    }
-
     function showCollectionsPage() {
-        return view("collections");
+        $collections = Collection::where('shop_id', auth()->user()->id)->get();
+        return view("collections", compact("collections"));
     }
 
-    function getRedirectRoute($routeName, $params = []) {
-        $shop = Auth::user();
-        $shopDomain = str_replace(".myshopify.com", "", $shop->getDomain()->toNative());
-        $path = URL::tokenRoute($routeName, $params);
-        //replace http with https
-        $path = str_replace("http", "https", $path);
-        $path .= "&host=" . base64_encode("admin.shopify.com/store/" . $shopDomain);
-        return $path;
+    function showCreateCollectionPage(Request $request) {
+        $collectionId = $request->collectionId;
+        return view("createCollection",  [
+            "collectionId" => $collectionId,
+        ]);
     }
 
-    function processCollectionSubmission(Request $request) {
-        if ($request->isMethod('post')) {
-            /*
-            $routeName = "submitCollection";
-            $params = [];
-            $shop = Auth::user();
-            $shopDomain = str_replace(".myshopify.com", "", $shop->getDomain()->toNative());
-            $path = URL::tokenRoute($routeName, $params);
-            //replace http with https
-            $path = str_replace("http", "https", $path);
-            $path .= "&host=" . base64_encode("admin.shopify.com/store/" . $shopDomain);
-            */
-            $path = getRedirectRoute("submitCollection");
-            return redirect($path);
+    function processCollectionSubmission(Request $request) : RedirectResponse {
+        $collectionId = $request->collectionId;
+        if ($collectionId != 0) {
+            $collection = Collection::find($collectionId);
+        } else {
+            $collection = new Collection();
         }
-        return redirect("seeCollections");
+
+        $collection->name = $request->name;
+        $collection->description = $request->description;
+        $collection->shop_id = auth()->user()->id;
+
+        if ($collection->save()) {
+            // Successfully saved
+        } else {
+            $errors = $collection->getErrors();
+            dd("". $errors[0]->getMessage());
+        }
+
+        try {
+            $redirectUrl = getRedirectRoute('collections');
+            return redirect($redirectUrl);
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
+    }
+
+    public function showProductsPage(Request $request) {
+        $collectionId = $request->collectionId;
+        $collection = Collection::find($collectionId);
+        $products = Product::where('collection_id', $collectionId)->get();
+        return view("products", compact("products","collection"));
     }
 }

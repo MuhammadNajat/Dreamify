@@ -2,10 +2,11 @@
 
 @section('content')
 
-    <form method="POST" action="{{ route('submitCollection') }}">
+    <form method="POST" action="{{ route('submitProduct') }}">
         @sessionToken
         <input type="hidden" name="host" value="{{getHost()}}">
-        <input type="hidden" name="collectionId" id="collectionId" value="{{$collectionId?? 0}}">
+        <input type="hidden" name="collectionId" id="collectionId" value="{{$collectionId}}">
+        <input type="hidden" name="productId" id="productId" value="{{$productId?? 0}}">
         <div>
             <label for="name">Name</label>
             <input type="text" id="name" name="name" />

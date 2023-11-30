@@ -2,7 +2,7 @@
 
 @section('content')
     <p>Shop Name: {{ $shopDomain ?? Auth::user()->name }}</p>
-    <p>Shop ID: {{ $shopDomain ?? Auth::user()->id }}</p>
+    <p>Shop ID: {{ Auth::user()->id }}</p>
 @endsection
 
 @section('scripts')
