@@ -24,8 +24,9 @@ class CollectionController extends Controller
 
     function showCreateCollectionPage(Request $request) {
         $collectionId = $request->collectionId;
+        $collection = Collection::find($collectionId);
         return view("createCollection",  [
-            "collectionId" => $collectionId,
+            "collection" => $collection,
         ]);
     }
 

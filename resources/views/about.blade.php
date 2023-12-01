@@ -1,14 +1,6 @@
-@extends('shopify-app::layouts.default')
+@extends('layouts.defaultSource')
 
 @section('content')
-    <p>Shop Name: {{ $shopDomain ?? Auth::user()->name }}</p>
-    <p>Shop ID: {{ Auth::user()->id }}</p>
-@endsection
-
-@section('scripts')
-    @parent
-
-    <script>
-        actions.TitleBar.create(app, { title: 'Welcome' });
-    </script>
+        <h3 class="display-4 text-center mt-20">Shop Name is <b>{{ $shopDomain ?? Auth::user()->name }}</b></h3>
+        <h3 class="display-4 text-center">Shop ID is <b>{{ Auth::user()->id }}</h3>
 @endsection
