@@ -1,6 +1,10 @@
 @extends('layouts.defaultSource')
 
 @section('content')
-        <h3 class="display-4 text-center mt-20">Shop Name is <b>{{ $shopDomain ?? Auth::user()->name }}</b></h3>
-        <h3 class="display-4 text-center">Shop ID is <b>{{ Auth::user()->id }}</h3>
+        <div>
+                <h4 class="text-center mt-5">Shop Name is <b>{{ $shopDomain ?? Auth::user()->name }}</b></h4>
+        </div>
+        <div>
+                <h4 class="text-center">Shop ID is <b>{{ Auth::user()->id }}</h4>
+        </div>
 @endsection
