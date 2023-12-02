@@ -1,39 +1,44 @@
-@extends('shopify-app::layouts.default')
+@extends('layouts.defaultSource')
+
+@section('title', 'Create Collection')
 
 @section('content')
-    <div>
-        <h2>Products for Collection {{$collection->name}}</h2>
-        <a href="{{ URL::tokenRoute('createProduct', ['collectionId' => $collection->id]) }}">Add Product</a>
+    <div class="text-center">
+        <h4>Products for Collection <b>{{$collection->name}}</b></h4>
+        <a href="{{ URL::tokenRoute('createProduct', ['collectionId' => $collection->id]) }}" class="btn btn-info" role="button">Add Product</a>
     </div>
-    <div>
-        <table class="w-full table-auto text-sm text-left">
-            <thead class="text-gray-600 font-medium border-b">
-                <tr>
-                    <th class="py-3 pr-6">Name</th>
-                    <th class="py-3 pr-6">Description</th>
-                    <th class="py-3 pr-6"></th>
-                    <th class="py-3 pr-6"></th>
-                </tr>
-            </thead>
-            <tbody class="text-gray-600 divide-y">
-                @foreach ($products as $product)
-                    <tr>
-                        <td class="pr-6 py-4 whitespace-nowrap ">
-                            {{ $product->name }}
-                        </td>
-                        <td class="pr-6 py-4 whitespace-nowrap ">
-                            {{ $product->description }}
-                        </td>
+    <div class="container mt-2">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                    <table class="table table-dark table-hover text-center">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($products as $product)
+                                <tr>
+                                    <td>
+                                        {{ $product->name }}
+                                    </td>
+                                    <td>
+                                        {{ Str::of($product->description)->limit(30) }}
+                                    </td>
 
-                        <td class="text-right whitespace-nowrap">
-                            <a href="{{ URL::tokenRoute('createProduct', ['productId' => $product->id, 'collectionId' => $collection->id]) }}"
-                                class="py-1.5 px-3 text-red-600 hover:text-gray-500 duration-150 hover:bg-red-50 border rounded-lg">Edit</a>
-                        </td>
-
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+                                    <td>
+                                        <a href="{{ URL::tokenRoute('createProduct', ['productId' => $product->id, 'collectionId' => $collection->id]) }}"
+                                            class="btn btn-info" role="button">Edit</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 

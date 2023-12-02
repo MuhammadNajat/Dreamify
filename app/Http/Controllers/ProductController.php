@@ -10,9 +10,11 @@ class ProductController extends Controller
 {
     public function showCreateProductPage(Request $request) {
         $productId = $request->productId;
+        $product = Product::find($productId);
         $collectionId = $request->collectionId;
         return view("createProduct",  [
-            "productId" => $productId,
+            //"productId" => $productId,
+            "product"=> $product,
             "collectionId" => $collectionId
         ]);
     }
