@@ -1,14 +1,3 @@
-<!-- plugins:js -->
-<script src="./vendors/js/vendor.bundle.base.js"></script>
-<!-- endinject -->
-<!-- Plugin js for this page -->
-
-<!-- End plugin js for this page -->
-<!-- inject:js -->
-
-<script src="./js/hoverable-collapse.js"></script>
-<script src="./js/template.js"></script>
-<script src="./js/settings.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.0.0/turbolinks.js"></script>
 <!-- Include Bootstrap JS and Popper.js via CDN -->

@@ -201,7 +201,7 @@ return [
     |
     */
 
-    'api_scopes' => env('SHOPIFY_API_SCOPES', 'read_products,write_products,read_themes'),
+    'api_scopes' => env('SHOPIFY_API_SCOPES', 'read_products,write_products,read_themes,read_script_tags,write_script_tags'),
 
     /*
     |--------------------------------------------------------------------------
@@ -373,14 +373,13 @@ return [
     */
 
     'scripttags' => [
-        /*
             [
-                'src' => env('SHOPIFY_SCRIPTTAG_1_SRC', 'https://some-app.com/some-controller/js-method-response'),
+                'src' => env('SHOPIFY_SCRIPTTAG_1_SRC', 'http://localhost'),
+                //'src' => env('APP_URL') . env('SHOPIFY_SCRIPTTAG_1_SRC'),
                 'event' => env('SHOPIFY_SCRIPTTAG_1_EVENT', 'onload'),
                 'display_scope' => env('SHOPIFY_SCRIPTTAG_1_DISPLAY_SCOPE', 'online_store')
-            ],
-            ...
-        */
+            ]
+
     ],
 
     /*
