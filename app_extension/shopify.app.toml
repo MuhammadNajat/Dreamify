@@ -1,0 +1,24 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "dreamify-s"
+client_id = "967c2ed40d82f8e96f27e562b2c81de7"
+application_url = "https://correct-immense-panther.ngrok-free.app"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+use_legacy_install_flow = true
+
+[auth]
+redirect_urls = [
+  "https://correct-immense-panther.ngrok-free.app/authenticate"
+]
+
+[webhooks]
+api_version = "2023-10"
+
+[pos]
+embedded = false
+
+[build]
+dev_store_url = "store-for-ostad.myshopify.com"

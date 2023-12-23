@@ -374,8 +374,8 @@ return [
 
     'scripttags' => [
             [
-                'src' => env('SHOPIFY_SCRIPTTAG_1_SRC', 'http://localhost'),
-                //'src' => env('APP_URL') . env('SHOPIFY_SCRIPTTAG_1_SRC'),
+                //'src' => env('SHOPIFY_SCRIPTTAG_1_SRC', 'http://localhost'),
+                'src' => env('APP_URL') . env('SHOPIFY_SCRIPTTAG_1_SRC'),
                 'event' => env('SHOPIFY_SCRIPTTAG_1_EVENT', 'onload'),
                 'display_scope' => env('SHOPIFY_SCRIPTTAG_1_DISPLAY_SCOPE', 'online_store')
             ]
