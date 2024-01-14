@@ -9,6 +9,7 @@ A Shopify theme app-extension having the following features:
 1. A dynamic dropdown which has multiple languages to choose from.
 2. Upon selecting a language from it, the texts on the shop's web page are instantly translated to it.
 3. The shop admin can decide where to show the language selection option by editing the shop's theme.
+4. This is a section block app extension
 
 Technologies used include:
 1. JavaScript
