@@ -88,8 +88,10 @@ function showLanguageSelectionDropdown() {
                 let delay = 90;
                 await new Promise(resolve => setTimeout(resolve, delay));
 
+                ///Copy the API key from README.md file and set it to the variable `API_KEY`
+                const API_KEY = '';
                 const res = await axios.post(
-                    `https://translation.googleapis.com/language/translate/v2?key=AIzaSyBnGPY_xrle2mHk8jfSrMn9ogkf9hFqivE`,
+                    `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}`,
                     { q: textToTranslate, target: translateTo }
                 );
 
@@ -182,8 +184,10 @@ async function translatePageToPastUserLanguageChoice() {
             let delay = 90;
             await new Promise(resolve => setTimeout(resolve, delay));
 
+            ///Copy the API key from README.md file and set it to the variable `API_KEY`
+            const API_KEY = '';
             const res = await axios.post(
-                `https://translation.googleapis.com/language/translate/v2?key=AIzaSyBnGPY_xrle2mHk8jfSrMn9ogkf9hFqivE`,
+                `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}`,
                 { q: textToTranslate, target: translateTo }
             );
 
@@ -205,9 +209,7 @@ if(pastLanguageChoiceValue != null) {
     let languageDropdown = document.getElementById("dreamifyLanguaeDropdown");
     if(languageDropdown != null) {
         languageDropdown.value = pastLanguageChoiceValue;
-        translatePageToPastUserLanguageChoice();
+        await translatePageToPastUserLanguageChoice();
         console.log("##### PAST LANGUAGE CHOICE IS CHECKED AND HANDLED");
     }
 }
-
-///await translatePageToPastUserLanguageChoice();
