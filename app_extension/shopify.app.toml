@@ -21,4 +21,4 @@ api_version = "2023-10"
 embedded = false
 
 [build]
-dev_store_url = "store-for-ostad.myshopify.com"
+dev_store_url = "mylunarshop.myshopify.com"
