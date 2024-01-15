@@ -1,5 +1,5 @@
 IMPORTANT:
-1. To run the app, you must use an API key of Google Cloud Translation API. In TranslationInjctor.js, you'll find an expression "const API_KEY = '';". It's been declared in 2 different places (line 92 and 188). In each place, you need to set the API key. Please find the API key below:
+1. To run the app, you must use an API key of Google Cloud Translation API. In TranslationInjector.js, you'll find an expression "const API_KEY = '';". It's been declared in 2 different places (line 92 and 188). In each place, you need to set the API key. Please find the API key below:
 AIzaSyAC9jPAlSTpVTBY1ue02LjP-d9-rdvY0sw
 
 2. Please follow other simple/common steps to run the app.
