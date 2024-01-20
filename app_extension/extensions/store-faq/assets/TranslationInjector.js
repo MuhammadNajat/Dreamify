@@ -89,7 +89,7 @@ function showLanguageSelectionDropdown() {
                 await new Promise(resolve => setTimeout(resolve, delay));
 
                 ///Copy the API key from README.md file and set it to the variable `API_KEY`
-                const API_KEY = '';
+                const API_KEY = 'AIzaSyArz3weROlTTW_IGEU3h8XEX33xZWY0IRQ';
                 const res = await axios.post(
                     `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}`,
                     { q: textToTranslate, target: translateTo }
@@ -185,7 +185,7 @@ async function translatePageToPastUserLanguageChoice() {
             await new Promise(resolve => setTimeout(resolve, delay));
 
             ///Copy the API key from README.md file and set it to the variable `API_KEY`
-            const API_KEY = '';
+            const API_KEY = 'AIzaSyArz3weROlTTW_IGEU3h8XEX33xZWY0IRQ';
             const res = await axios.post(
                 `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}`,
                 { q: textToTranslate, target: translateTo }
