@@ -1,16 +1,2 @@
-IMPORTANT:
-1. To run the app, you must use an API key of Google Cloud Translation API. In TranslationInjector.js, you'll find an expression "const API_KEY = '';". It's been declared in 2 different places (line 92 and 188). In each place, you need to set the API key. Please get an key to consume Google Cloud Translation API and set it. 
-
-2. Please follow other simple/common steps to run the app.
-
-General Information:
-A Shopify theme app-extension having the following features:
-1. A dynamic dropdown which has multiple languages to choose from.
-2. Upon selecting a language from it, the texts on the shop's web page are instantly translated to it.
-3. The shop admin can decide where to show the language selection option by editing the shop's theme.
-4. This is a section block app extension
-
-Technologies used include:
-1. JavaScript
-2. Laravel, PHP
-3. Blade and Liquid as templating languages
+A Theme App Extension has been added. This is a section block app.
+There are 2 files associated with this feature. They include: timer.liquid and Timer.js.
